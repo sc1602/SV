@@ -109,7 +109,9 @@ p {
 
 </head>
 <body>
-
+<audio id="bgMusic" loop preload="auto">
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
 <!-- Pantalla 1 -->
 <div class="section" id="inicio">
   <h1>Hola, mi amor ❤️</h1>
@@ -170,11 +172,11 @@ p {
   </div>
 
   <!-- GALERÍA -->
-  <h2 style="margin-top:40px;">Nuestros momentos 📸</h2>
+  <h2 style="margin-top:40px;">Nuestros momentos ❤️ 📸</h2>
   <div class="gallery">
     <img src="img/IMG_0571.JPEG" alt="Foto especial 1">
     <img src="img/IMG_0301.JPEG" alt="Foto especial 2">
-    <img src="img/a8eb90f4-e55d-41e4-82ef-0d7527a542ed.JPEG" alt="Foto especial 3">
+    <img src="img/IMG_1413.JPEG" alt="Foto especial 3">
     <img src="img/IMG_0555.JPEG" alt="Foto especial 4">
     
   </div>
@@ -217,19 +219,22 @@ function corazones() {
     setTimeout(() => heart.remove(), 6000);
   }, 300);
 }
-const music = document.getElementById("bgMusic");
+window.addEventListener("DOMContentLoaded", () => {
+  const music = document.getElementById("bgMusic");
+  music.volume = 0.3;
 
-document.addEventListener("click", () => {
-  music.play();
-}, { once: true });
+  // primer clic en cualquier parte
+  document.body.addEventListener("click", () => {
+    music.play().catch(() => {});
+  }, { once: true });
+});
+
 
 </script>
 
 </body>
 
-<audio id="bgMusic" loop>
-  <source src="musica.mp3" type="audio/mpeg">
-</audio>
+
 
 
 </html>
