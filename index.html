@@ -217,7 +217,19 @@ function corazones() {
     setTimeout(() => heart.remove(), 6000);
   }, 300);
 }
+const music = document.getElementById("bgMusic");
+
+document.addEventListener("click", () => {
+  music.play();
+}, { once: true });
+
 </script>
 
 </body>
+
+<audio id="bgMusic" loop>
+  <source src="musica.mp3" type="audio/mpeg">
+</audio>
+
+
 </html>
